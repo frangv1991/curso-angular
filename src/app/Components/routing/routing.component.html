@@ -1,0 +1,16 @@
+<h2>Ejemplos de enrutamiento</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description }}
+    <br/>
+    <button class="btn" (click)="showEmployee(0)">Empleado 1</button>
+    <button class="btn" (click)="showEmployee(1)">Empleado 2</button>
+    <button class="btn" (click)="showEmployee(2)">Empleado 3</button>
+    <h4>Empleado activo (id {{ activeEmployee }})</h4>
+    <strong>Nombre: </strong> {{ employees[activeEmployee].name }} <br/>
+    <strong>Email: </strong> {{ employees[activeEmployee].email }} <br/>
+  </div>
+</div>

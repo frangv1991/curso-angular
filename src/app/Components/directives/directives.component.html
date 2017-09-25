@@ -1,0 +1,69 @@
+<h2>Ejemplos de directivas</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title1 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description1 }}
+    <br/>
+    <button class="btn btn-default" (click)="changeColor('azul')">Azul</button>
+    <button class="btn btn-default" (click)="changeColor('verde')">Verde</button>
+    <div class="label label-primary" *ngIf="activeColor == 'azul'">COLOR ACTIVO AZUL</div>
+    <div class="label label-info" *ngIf="activeColor == 'verde'">COLOR ACTIVO VERDE</div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title2 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description2 }}
+    <br/>
+    <strong>LISTA DE COLORES</strong>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let color of colorsList; let i = index">{{ i+1 }}. {{ color }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title3 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description3 }}
+    <br/>
+    <button class="btn btn-default" (click)="changeAlertStatus('success')">Éxito</button>
+    <button class="btn btn-default" (click)="changeAlertStatus('error')">Error</button>
+    <div class="alert" [ngClass]="{'alert-success': alertStatus === 'success', 'alert-danger': alertStatus === 'error'}">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title4 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description4 }}
+    <br/>
+    <button class="btn btn-default" (click)="changeAlertStatus2('success')">Éxito</button>
+    <button class="btn btn-default" (click)="changeAlertStatus2('error')">Error</button>
+    <div class="alert" [ngStyle]="printInlineStyles()">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title5 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description5 }}
+    <br/>
+    <div [appAlertMessage]="getAlertMessage()">Esto es un texto...</div>
+  </div>
+</div>

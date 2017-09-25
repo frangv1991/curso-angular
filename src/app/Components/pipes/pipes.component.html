@@ -1,0 +1,41 @@
+<h2>Ejemplos de filtros</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title1 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description1 }}
+    <br/>
+    Aplicando filtro dd/MM/yyyy HH:mm: <strong>{{ birthdate|date:'dd/MM/yyyy HH:mm' }}</strong>
+    <br/>
+    Aplicando filtro 'fullDate': <strong>{{ birthdate|date:'fullDate' }}</strong>
+    <br/>
+    Aplicando filtro 'shortDate': <strong>{{ birthdate|date:'shortDate' }}</strong>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title2 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description2 }}
+    <br/>
+    Texto en mayúsculas: <strong>{{ dummyText|uppercase }}</strong>
+    <br/>
+    Texto en minúsculas: <strong>{{ dummyText|lowercase }}</strong>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title3 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description3 }}
+    <br/>
+    Sin filtro: <strong>{{ htmlText }}</strong>
+    <br/>
+    Con filtro: <strong>{{ htmlText|stripHtml }}</strong>
+  </div>
+</div>
