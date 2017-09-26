@@ -6,11 +6,17 @@
   <div class="panel-body">
     {{ description }}
     <br/>
-    <button class="btn" (click)="showEmployee(0)">Empleado 1</button>
-    <button class="btn" (click)="showEmployee(1)">Empleado 2</button>
-    <button class="btn" (click)="showEmployee(2)">Empleado 3</button>
-    <h4>Empleado activo (id {{ activeEmployee }})</h4>
-    <strong>Nombre: </strong> {{ employees[activeEmployee].name }} <br/>
-    <strong>Email: </strong> {{ employees[activeEmployee].email }} <br/>
+
+    <div>
+      <button class="btn" (click)="showEmployee(1)">Empleado 1</button>
+      <button class="btn" (click)="showEmployee(2)">Empleado 2</button>
+      <button class="btn" (click)="showEmployee(3)">Empleado 3</button>
+    </div>
+
+    <br/>
+    <a class="btn btn-primary" [routerLink]="['editar']" *ngIf="activeEmployee">Editar empleado activo: <strong>{{ activeEmployee.name }}</strong></a>
+
+    <router-outlet></router-outlet>
+
   </div>
 </div>
