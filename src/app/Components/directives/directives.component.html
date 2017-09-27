@@ -64,6 +64,23 @@
   <div class="panel-body">
     {{ description5 }}
     <br/>
+    <div *ngIf="userIsLogin; then loginTrue else loginFalse"></div>
+    <ng-template #loginTrue>
+      <button class="btn btn-warning" (click)="changeUserStatus()">Logout</button> El usuario SI está logado.
+    </ng-template>
+    <ng-template #loginFalse>
+      <button class="btn btn-primary" (click)="changeUserStatus()">Login</button> El usuario NO está logado.
+    </ng-template>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ title6 }}</h3>
+  </div>
+  <div class="panel-body">
+    {{ description6 }}
+    <br/>
     <div [appAlertMessage]="getAlertMessage()">Esto es un texto...</div>
   </div>
 </div>

@@ -49,10 +49,15 @@ export class DirectivesComponent implements OnInit {
     return {'background-color': backgroundColor, 'color': foregroundColor};
   }
 
-  title5 :string = "Directivas personalizadas";
-  description5 :string = "Ejemplo de una directiva personalizada: [appAlertMessage].";
-  alertStatus5: string;
-  color: string = 'red';
+  title5 :string = "Directivas estructurales: ngTemplate";
+  description5 :string = "Ejemplo de la directiva ngTemplate.";
+  userIsLogin :boolean = false;
+  changeUserStatus(): void {
+    this.userIsLogin = !this.userIsLogin;
+  }
+
+  title6 :string = "Directivas personalizadas";
+  description6 :string = "Ejemplo de una directiva personalizada: [appAlertMessage].";
   getAlertMessage(): Object {
     return {
       'type': 'success',
