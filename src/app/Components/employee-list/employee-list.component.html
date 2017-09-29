@@ -1,0 +1,25 @@
+<h2>Empleados</h2>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>Listado de empleados</h3></div>
+
+  <table class="table table-striped">
+	<tr>
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Email</th>
+		<th>Edad</th>
+		<th>Valoración</th>								
+		<th>Estado</th>								
+		<th>&nbsp;</th>												
+	</tr>
+	<tr *ngFor="let employee of employees">
+		<td><a [routerLink]="['/edit-employee', employee.id]">{{ employee.id }}</a></td>
+		<td>{{ employee.name }}</td>
+		<td>{{ employee.email }}</td>
+		<td>{{ employee.age }}</td>
+		<td>{{ employee.valoration }}</td>								
+		<td>{{ employee.isActive }}</td>								
+		<td><button class="btn btn-danger glyphicon glyphicon-trash" (click)="removeEmployee(employee.id)"></button></td>												
+	</tr>	
+  </table>
+</div>

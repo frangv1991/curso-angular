@@ -1,10 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
-
-import { RoutingComponent } from '../routing/routing.component';
-
 @Component({
   selector: 'app-routing-children',
   templateUrl: './routing-children.component.html',
@@ -16,8 +12,24 @@ export class RoutingChildrenComponent implements OnInit, OnDestroy {
   activeEmployee: any;
   params: any;
 
-  constructor(private router:Router, private activedRoute:ActivatedRoute, private routingComponent:RoutingComponent) {
-    this.employees = routingComponent.employees;
+  constructor(private router:Router, private activedRoute:ActivatedRoute) {
+     this.employees = [
+      {
+        id: 1,
+        name: "Sergio Rodríguez",
+        email: "serrod@gmail.com"
+      },
+      {
+        id: 2,
+        name: "Ángela Pérez",
+        email: "angper@gmail.com"
+      },
+      {
+        id: 3,
+        name: "Rafael Fernández",
+        email: "raffer@gmail.com"
+      }
+    ];    
   }
 
   ngOnInit() {

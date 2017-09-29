@@ -1,0 +1,53 @@
+<h2>Empleados</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Nuevo empleado</h3>
+  </div>
+  <div class="panel-body">
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)" novalidate>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div [hidden]="employeeForm.controls['name'].valid || employeeForm.controls['name'].pristine" class="alert alert-danger">
+            El nombre debe tener al menos 4 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+        <div [hidden]="employeeForm.controls['email'].valid || employeeForm.controls['email'].pristine" class="alert alert-danger">
+            El email no es válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Edad</label>
+        <input type="text" class="form-control" id="age" formControlName="age">
+      </div>
+
+      <div class="form-group">
+        <label for="job">Puesto</label>
+        <select class="form-control" id="job" formControlName="job">
+          <option *ngFor="let job of jobs" [value]="job">{{ job }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="valoration">Valoración</label>
+        <br/>
+        <input type="hidden" id="valoration" formControlName="valoration">
+      </div>
+
+      <div class="checkbox">
+         <label>
+           <input type="checkbox" formControlName="isActive"> ¿Activo?
+         </label>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid">Enviar</button>
+
+    </form>
+  </div>
+</div>

@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { APP_ROUTING } from './app.routing';
+
+import { LoggerService } from './Services/logger.service';
+import { UserProviderService } from './Services/userprovider.service';
+import { EmployeeProviderService } from './Services/employee-provider.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -17,6 +22,10 @@ import { ReactiveFormsComponent } from './Components/reactive-forms/reactive-for
 import { RoutingComponent } from './Components/routing/routing.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { RoutingChildrenComponent } from './Components/routing-children/routing-children.component';
+import { ChildComponent } from './Components/child/child.component';
+import { EmployeeCreateComponent } from './Components/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './Components/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './Components/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -33,16 +42,24 @@ import { RoutingChildrenComponent } from './Components/routing-children/routing-
     ReactiveFormsComponent,
     RoutingComponent,
     PageNotFoundComponent,
-    RoutingChildrenComponent
+    RoutingChildrenComponent,
+    ChildComponent,
+    EmployeeCreateComponent,
+    EmployeeEditComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    HttpModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: "es-ES" } // Con la key deps podemos indicar el servicio que se encargará proporcionar el locale (InjectionToken)
+    { provide: LOCALE_ID, useValue: "es-ES" }, // Con la key deps podemos indicar el servicio que se encargará proporcionar el locale (InjectionToken)
+    LoggerService,
+    UserProviderService,
+    EmployeeProviderService
   ],
   bootstrap: [AppComponent]
 })

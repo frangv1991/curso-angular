@@ -12,7 +12,7 @@ export class DataBindingComponent implements OnInit {
 
   title2 :string = "Property binding";
   description2: string = "Ejemplo de property binding.";
-  user1: Object = {
+  user1: any = {
     name: "Ricardo Fernández",
     email: "ricfer@gmail.com"
   };
@@ -26,11 +26,19 @@ export class DataBindingComponent implements OnInit {
 
   title4 :string = "Two-way binding";
   description4: string = "Ejemplo de two-way binding (bi-direccional).";
-  content: string;
+  content: string = "Escribe aquí ...";
 
+  parentVariable: string = "Soy parentVariable";
+  childComponentVar: string;
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  getChildVar(event) {
+    this.childComponentVar = event;
+  }
+   
+  
 }

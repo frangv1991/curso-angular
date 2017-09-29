@@ -1,4 +1,10 @@
-<h5>Ruta hija</h5>
+<div class="content-child">
+	<div class="label label-primary">COMPONENTE DE LA RUTA HIJA</div>
+	<div>
+		<br/>
+		<strong>Nombre: </strong> <span *ngIf="activeEmployee">{{ activeEmployee.name }}</span>
+		<br/>
+		<strong>Email: </strong> <span *ngIf="activeEmployee">{{ activeEmployee.email }}</span>
+	</div>
+</div>
 
-<strong>Nombre: </strong> <span *ngIf="activeEmployee">{{ activeEmployee.name }}</span> <br/>
-<strong>Email: </strong> <span *ngIf="activeEmployee">{{ activeEmployee.email }}</span> <br/>

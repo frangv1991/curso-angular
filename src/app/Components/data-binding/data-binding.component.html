@@ -38,7 +38,27 @@
   <div class="panel-body">
     {{ description4 }}
     <br/>
-    <input [(ngModel)]="content" />
+    <input [(ngModel)]="content" class="form-control"/>
+    <br/>
     <div class="alert alert-info">El contenido es: <strong>{{ content }}</strong></div>
   </div>
 </div>
+
+<br/>
+<h2>Ejemplos de comunicación entre componentes</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">@Input y @Output</h3>
+  </div>
+  <div class="panel-body">
+    Ejemplo de comunicación entre componentes utilizando los decoradores @Input y @Output.
+
+	<!-- Componente ChildComponent -->
+	<app-child [parentComponentVar]="parentVariable" (childVarEmitter)="getChildVar($event)"></app-child>
+
+    <h4>Emisión de datos mediante @Output (comunicación HIJO => PADRE)</h4>
+	Variable procedente del componente HIJO: <label>{{ childComponentVar }}</label>	
+
+  </div>
+</div>
+
