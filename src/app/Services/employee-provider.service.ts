@@ -117,9 +117,15 @@ export class EmployeeProviderService {
     valorationSlider.slider('setValue', this.activeEmployee.valoration);
     employeeForm.controls['valoration'].setValue(this.activeEmployee.valoration);
     
-    // Actualiza valor al mover el slider
+    // Marca el campo como dirty (modificado)
+    employeeForm.controls['valoration'].markAsDirty();      
+        
+    // Actualiza valor al mover el slider (evento change del slider)
     valorationSlider.change(event => {
       employeeForm.controls['valoration'].setValue(event.value.newValue);
+      
+      // Marca el campo como dirty (modificado)
+      employeeForm.controls['valoration'].markAsDirty();      
     });
     
     return employeeForm;
