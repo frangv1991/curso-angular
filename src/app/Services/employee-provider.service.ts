@@ -90,17 +90,12 @@ export class EmployeeProviderService {
     // Actualiza el modelo cuando se producen cambios en el formulario
     employeeForm.valueChanges.subscribe(value => {
 
-      // Esta funcionalidad solo se tiene en cuenta si estamos editando, no en el formulario de creación
-      if (isNew) {
-        return;
-      }
-      
       // Si los datos del formulario se han cambiado Y la validación es correcta
       if (employeeForm.dirty && employeeForm.valid){
         this.activeEmployee = value;
         
         // Si estamos editando al empleado, lo actualizamos conforme va actualizando sus datos
-        if (this.activeEmployeeId !== null && this.activeEmployeeId !== undefined) {
+        if (!isNew && this.activeEmployeeId !== null && this.activeEmployeeId !== undefined) {
           
           // Si la suscripción no está cerrada se elimina antes de enviar una nueva petición
           if (this.updateSubscription !== null && !this.updateSubscription.closed) {
