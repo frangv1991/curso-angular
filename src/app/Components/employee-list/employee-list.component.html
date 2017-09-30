@@ -19,7 +19,10 @@
 		<td>{{ employee.age }}</td>
 		<td>{{ employee.valoration }}</td>								
 		<td>{{ employee.isActive }}</td>								
-		<td><button class="btn btn-danger glyphicon glyphicon-trash" (click)="removeEmployee(employee.id)"></button></td>												
+		<td>
+			<a class="btn btn-primary glyphicon glyphicon-pencil" [routerLink]="['/edit-employee', employee.id]"></a>
+			<button class="btn btn-danger glyphicon glyphicon-trash" (click)="removeEmployee(employee.id)"></button>
+	    </td>												
 	</tr>	
   </table>
 </div>

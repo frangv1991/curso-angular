@@ -23,27 +23,33 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Obtenemos el formulario que vamos a usar
     this.employeeForm = this.employeeProvider.formBuilder();
     
-    // Obtiene el id de los parámetros
+    // Obtenemos el parámetro "id" de la ruta
     this.activedRoute.params.subscribe(params => {
       this.loadUser(params['id']);
     });        
   }
 
-  // Carga al usuario
-  loadUser(id){
+  // Cargamos al usuario que vamos a editar
+  loadUser(id: any){
+    
     this.employeeProvider.getEmployee(id).subscribe(
-      // Exito
+      
+      // Callback de éxito
       response =>{
         this.employeeForm = this.employeeProvider.formBuilder();
       },
       
-      // Error
-      error =>{
+      // Callback de error
+      error => {
         console.log('Se ha producido un error: ' + error);
         this.router.navigate(['/404']);         
-      }
+      }, 
+      
+      // Callback de finalización (se ejecuta después de los callbacks de éxito o error)
+      () => console.log('getEmployee() finalizado')      
     );      
   }
  

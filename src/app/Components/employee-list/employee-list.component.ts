@@ -18,13 +18,13 @@ export class EmployeeListComponent implements OnInit {
     this.loadEmployees();
   }
   
-  // Carga los empleados
+  // Carga todos los empleados
   loadEmployees() {
     this.employeeProvider.getEmployees().subscribe(response => {
       
       let data = response.json();
       
-      // Inicializa el array de empleados
+      // Inicializamos el array de empleados
       this.employees = [];
       
       // Recorremos el objeto devuelto para darle el formato adecuado
@@ -45,7 +45,8 @@ export class EmployeeListComponent implements OnInit {
   // Borra empleado
   removeEmployee(id: string) {
     this.employeeProvider.removeEmployee(id).subscribe(response => {
-      // Carga los usuarios después de borrar alguno
+      
+      // Recarga el listado de empleados
       this.loadEmployees();
     });       
   }  

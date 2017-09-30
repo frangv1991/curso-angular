@@ -23,21 +23,25 @@ export class EmployeeCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Obtenemos el formulario que vamos a usar
     this.employeeForm = this.employeeProvider.formBuilder(true);
   }
 
   onSubmit(employeeForm) {
     this.employeeProvider.createEmployee().subscribe(
-      // Exito
-      response =>{
-        console.log(response);
+      
+      // Callback de éxito
+      response => {
         
         // Navega hacia la ruta de edición
-        this.router.navigate(['/edit-employee', response.json().name]);        
+        this.router.navigate(['/edit-employee', response.json().name]); // json() convierte la respuesta en un objeto json      
       },
       
-      // Error
-      error => console.log('Se ha producido un error: ' + error)
+      // Callback de error
+      error => console.log('Se ha producido un error: ' + error),
+      
+      // Callback de finalización (se ejecuta después de los callbacks de éxito o error)
+      () => console.log('createEmployee() finalizado')
     );      
   }
 }
