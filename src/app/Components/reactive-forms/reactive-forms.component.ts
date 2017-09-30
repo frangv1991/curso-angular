@@ -26,7 +26,7 @@ export class ReactiveFormsComponent implements OnInit {
   ngOnInit() {
     // Instancia un nuevo formulario
     this.employeeForm = new FormGroup({
-      
+
       // Crea los elementos del formulario (form controls)
       name: new FormControl('', [Validators.required, Validators.minLength(4)]),
       email: new FormControl('', [Validators.required,
@@ -37,10 +37,15 @@ export class ReactiveFormsComponent implements OnInit {
       job: new FormControl(),
       isActive: new FormControl()
     });
-            
-    // Actualiza el modelo cuando se producen cambios en el formulario
+
+    // Actualiza el modelo cuando se producen cambios en el formulario.
+    // Con this.employeeForm.controls['nombre_form_control'] podemos
+    // suscribirnos a los cambios de algún campo específico
     this.employeeForm.valueChanges.subscribe(value => {
+
+      // Si los datos del formulario son válidos
       if (this.employeeForm.valid){
+        console.log(value);
         this.employee = value;
       }
     });
@@ -48,7 +53,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   // Validación personalizada para el email
   forbiddenEmailValidator(email: FormControl): {[s:string]: boolean} | null{
-    
+
     // Email prohibidos
     let forbiddenEmails: Array<string> = ['dev1@gmail.com', 'dev2@gmail.com'];
 
@@ -61,15 +66,6 @@ export class ReactiveFormsComponent implements OnInit {
 
     // En caso contrario
     return null;
-  }
-  
-  onSubmit(employeeForm) {
-    // Imprime los datos recibidos en la consola
-    console.log(this.employee);
-
-    // Resetea el modelo y el formulario
-    this.employee = new Employee();
-    employeeForm.reset(this.employee);
   }
 
 }
