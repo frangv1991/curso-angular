@@ -1,3 +1,4 @@
 td, th {
 	overflow: hidden;
+	vertical-align: middle !important;
 }

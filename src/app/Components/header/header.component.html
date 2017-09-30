@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active"><a [routerLink]="['variables']">Variables</a></li>
         <li routerLinkActive="active"><a [routerLink]="['directives']">Directivas</a></li>
         <li routerLinkActive="active"><a [routerLink]="['pipes']">Filtros</a></li>
@@ -21,15 +21,15 @@
 			<li routerLinkActive="active"><a [routerLink]="['forms']">Formularios</a></li>
 	        <li routerLinkActive="active"><a [routerLink]="['reactive-forms']">Formularios reactivos</a></li>
           </ul>
-        </li>        
+        </li>
         <li routerLinkActive="active"><a [routerLink]="['routing']">Routing</a></li>
 		<li class="dropdown" routerLinkActive="active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados <span class="caret"></span></a>
           <ul class="dropdown-menu">
-			<li routerLinkActive="active"><a [routerLink]="['list-employee']">Listado de empleados</a></li>			          
-			<li routerLinkActive="active"><a [routerLink]="['new-employee']">Nuevo empleado</a></li>			
+			<li routerLinkActive="active"><a [routerLink]="['list-employee']">Listado de empleados</a></li>
+			<li routerLinkActive="active"><a [routerLink]="['new-employee']">Nuevo empleado</a></li>
           </ul>
-        </li>                
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
