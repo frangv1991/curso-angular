@@ -39,3 +39,16 @@
     Con filtro: <strong>{{ htmlText|stripHtml }}</strong>
   </div>
 </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Filtros personalizados II</h3>
+  </div>
+  <div class="panel-body">
+    Ejemplo de un filtro personalizado: truncateString.
+    <br/>
+    Sin filtro: <strong>{{ dummyText }}</strong>
+    <br/>
+    Con filtro: <strong>{{ dummyText|truncateString: {maxLength: 12,  ellipsis: true} }}</strong>
+  </div>
+</div>

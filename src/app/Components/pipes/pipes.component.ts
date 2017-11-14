@@ -17,10 +17,10 @@ export class PipesComponent implements OnInit {
   description2 :string = "Ejemplos con filtros de cadena.";
   dummyText: string = "Lorem Ipsum dolor sit amet. Consectetur Adipiscing elit.";
 
-  title3 :string = "Filtros personalizados";
+  title3 :string = "Filtros personalizados I";
   description3 :string = "Ejemplo de un filtro personalizado: stripHtml.";
   htmlText: string = "Texto <strong>con etiquetas</strong> <u>HTML</u>";
-
+  
   constructor(private datePipe: DatePipe) { }
 
   ngOnInit() {

@@ -26,6 +26,7 @@ import { ChildComponent } from './Components/child/child.component';
 import { EmployeeCreateComponent } from './Components/employee-create/employee-create.component';
 import { EmployeeEditComponent } from './Components/employee-edit/employee-edit.component';
 import { EmployeeListComponent } from './Components/employee-list/employee-list.component';
+import { TruncateStringPipe } from './Pipes/truncate-string.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EmployeeListComponent } from './Components/employee-list/employee-list.
     ChildComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    TruncateStringPipe
   ],
   imports: [
     BrowserModule,
