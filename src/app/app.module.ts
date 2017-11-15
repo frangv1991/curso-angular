@@ -20,7 +20,6 @@ import { AlertMessageDirective } from './Directives/alert-message.directive';
 import { FormsComponent } from './Components/forms/forms.component';
 import { ReactiveFormsComponent } from './Components/reactive-forms/reactive-forms.component';
 import { RoutingComponent } from './Components/routing/routing.component';
-import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { RoutingChildrenComponent } from './Components/routing-children/routing-children.component';
 import { ChildComponent } from './Components/child/child.component';
 import { EmployeeCreateComponent } from './Components/employee-create/employee-create.component';
@@ -43,7 +42,6 @@ import { SimpleCrudComponent } from './Components/simple-crud/simple-crud.compon
     FormsComponent,
     ReactiveFormsComponent,
     RoutingComponent,
-    PageNotFoundComponent,
     RoutingChildrenComponent,
     ChildComponent,
     EmployeeCreateComponent,
@@ -60,7 +58,7 @@ import { SimpleCrudComponent } from './Components/simple-crud/simple-crud.compon
     HttpModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: "es-ES" }, // Con la key deps podemos indicar el servicio que se encargará proporcionar el locale (InjectionToken)
+    { provide: LOCALE_ID, useValue: 'es-ES' }, // Con la key deps podemos indicar el servicio que se encargará proporcionar el locale (InjectionToken)
     LoggerService,
     UserProviderService,
     EmployeeProviderService

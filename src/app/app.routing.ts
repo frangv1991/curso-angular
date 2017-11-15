@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
 // Importamos componentes
-import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { DataBindingComponent } from './Components/data-binding/data-binding.component';
 import { DirectivesComponent } from './Components/directives/directives.component';
 import { PipesComponent } from './Components/pipes/pipes.component';
@@ -31,8 +30,6 @@ export const APP_ROUTES: Routes = [
   {path: 'new-employee', component: EmployeeCreateComponent},  
   {path: 'edit-employee/:id', component: EmployeeEditComponent},    
   {path: 'list-employee', component: EmployeeListComponent},      
-  
-  {path: '**', component: PageNotFoundComponent }, // página no encontrada
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

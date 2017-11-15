@@ -10,7 +10,7 @@ export class ChildComponent implements OnInit {
   @Input() parentComponentVar: string;
   
   @Output() childVarEmitter = new EventEmitter();
-  childVariable = "Soy childVariable";  
+  childVariable = 'Soy childVariable';  
     
   constructor() { }
 

@@ -14,14 +14,14 @@ export class AlertMessageDirective {
       return;
     }
 
-    let classes: string = "alert";
+    let classes: string = 'alert';
 
-    switch(this.message['type']) {
+    switch (this.message['type']) {
       case 'success':
-        classes += " alert-success";
+        classes += ' alert-success';
         break;
       case 'error':
-        classes += " alert-danger";
+        classes += ' alert-danger';
         break;
     }
 

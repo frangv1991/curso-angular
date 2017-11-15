@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 // Declaramos el objecto $ (jQuery) para poder usarlo dentro de nuestro código en Angular
-declare var $:any;
+declare var $: any;
 
 @Injectable()
 export class EmployeeProviderService {
@@ -33,9 +33,9 @@ export class EmployeeProviderService {
   
   // Crea un nuevo empleado
   createEmployee(): Observable<any> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify(this.activeEmployee);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({ headers: headers });
+    const body = JSON.stringify(this.activeEmployee);
         
     return this.http.post(this.apiURL + '.json', body, options);
   }
@@ -43,9 +43,9 @@ export class EmployeeProviderService {
   // Actualiza un empleado
   // Devuelve un Subscription para poder cancelarlo cuando sea necesario
   updateEmployee(): Subscription {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify(this.activeEmployee);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({ headers: headers });
+    const body = JSON.stringify(this.activeEmployee);
     
     return this.http.put(this.apiURL + '/' + this.activeEmployeeId + '.json', body, options)
       .subscribe( respuesta => {
@@ -82,12 +82,12 @@ export class EmployeeProviderService {
   formBuilder(isNew: boolean = false): FormGroup {
     
     // Si estamos creando un nuevo empleado, el activeEmployee es una nueva instancia del modelo
-    if (isNew){
+    if (isNew) {
       this.activeEmployee = new Employee();
     }
     
     // Creamos el formulario (FormGroup)
-    let employeeForm = new FormGroup({
+    const employeeForm = new FormGroup({
       
       // Creamos los elementos del formulario (FormControl) con sus valores iniciales y sus validaciones correspondientes
       name: new FormControl(this.activeEmployee.name, [Validators.required, Validators.minLength(4)]),
@@ -105,7 +105,7 @@ export class EmployeeProviderService {
     employeeForm.valueChanges.subscribe(value => {
 
       // Si los datos del formulario se han cambiado Y la validación es correcta
-      if (employeeForm.dirty && employeeForm.valid){
+      if (employeeForm.dirty && employeeForm.valid) {
         this.activeEmployee = value;
         
         // Si estamos editando al empleado, lo vamos actualizando en la BD conforme actualizamos sus datos en el formulario
@@ -125,9 +125,9 @@ export class EmployeeProviderService {
     // Inicializa el campo valoration
     // Es un ejemplo de integración con un componente realizado con jQuery (bootstrap-slider).
     // Es necesario haber declarado previamente el objeto $ (jQuery) como tipo any (declare var $:any;)
-    let valorationSlider = $("#valoration").slider({
+    const valorationSlider = $('#valoration').slider({
       ticks: [1, 2, 3, 4, 5],
-      ticks_labels: ["Mal", "Regular", "Bien", "Muy bien", "Excelente"]
+      ticks_labels: ['Mal', 'Regular', 'Bien', 'Muy bien', 'Excelente']
     });    
     
     // Valor inicial
@@ -152,16 +152,16 @@ export class EmployeeProviderService {
   } 
    
   // Validación personalizada para el campo email
-  forbiddenEmailValidator(email: FormControl): {[s:string]: boolean} | null{
+  forbiddenEmailValidator(email: FormControl): {[s: string]: boolean} | null {
     
     // Emails prohibidos
-    let forbiddenEmails: Array<string> = ['dev1@gmail.com', 'dev2@gmail.com'];
+    const forbiddenEmails: Array<string> = ['dev1@gmail.com', 'dev2@gmail.com'];
 
     // Si se ha introducido un email prohibido devolvemos el objeto {invalid: true}
     if (forbiddenEmails.indexOf(email.value) !== -1) {
       return {
         'invalid': true
-      }
+      };
     }
 
     // Si la validación es correcta devolvemos null
