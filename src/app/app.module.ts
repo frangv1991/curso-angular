@@ -27,6 +27,7 @@ import { EmployeeCreateComponent } from './Components/employee-create/employee-c
 import { EmployeeEditComponent } from './Components/employee-edit/employee-edit.component';
 import { EmployeeListComponent } from './Components/employee-list/employee-list.component';
 import { TruncateStringPipe } from './Pipes/truncate-string.pipe';
+import { SimpleCrudComponent } from './Components/simple-crud/simple-crud.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TruncateStringPipe } from './Pipes/truncate-string.pipe';
     EmployeeCreateComponent,
     EmployeeEditComponent,
     EmployeeListComponent,
-    TruncateStringPipe
+    TruncateStringPipe,
+    SimpleCrudComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { RoutingChildrenComponent } from './Components/routing-children/routing-
 import { EmployeeCreateComponent } from './Components/employee-create/employee-create.component';
 import { EmployeeEditComponent } from './Components/employee-edit/employee-edit.component';
 import { EmployeeListComponent } from './Components/employee-list/employee-list.component';
+import { SimpleCrudComponent } from './Components/simple-crud/simple-crud.component';
 
 export const APP_ROUTES: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/variables' }, // página principal
@@ -24,7 +25,8 @@ export const APP_ROUTES: Routes = [
   {path: 'routing/:id', component: RoutingComponent, children: [{
       path: 'editar', component: RoutingChildrenComponent
   }]},
-  
+  {path: 'simple-crud', component: SimpleCrudComponent },
+    
   // Gestión de empleados
   {path: 'new-employee', component: EmployeeCreateComponent},  
   {path: 'edit-employee/:id', component: EmployeeEditComponent},    

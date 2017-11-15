@@ -1,10 +1,38 @@
-<h2>Ejemplos de formularios reactivos</h2>
+<h2>Simple CRUD</h2>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>Listado de usuarios</h3></div>
+
+  <table class="table table-striped">
+	<tr>
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Email</th>
+		<th>Edad</th>
+		<th>Estado</th>
+		<th>&nbsp;</th>
+	</tr>
+	<tr *ngFor="let user of users">
+		<td>{{ user.id }}</td>
+		<td>{{ user.name }}</td>
+		<td>{{ user.email }}</td>
+		<td>{{ user.age }}</td>
+		<td>
+      <span class="label label-success" *ngIf="user.isActive">ACTIVO</span>
+      <span class="label label-default" *ngIf="!user.isActive">INACTIVO</span>
+    </td>
+		<td>
+			<button class="btn btn-primary glyphicon glyphicon-pencil" (click)="loadUser(user)"></button>
+			<button class="btn btn-danger glyphicon glyphicon-trash" (click)="removeUser(user)"></button>
+	    </td>
+	</tr>
+  </table>
+</div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">{{ title }}</h3>
+    <h3 class="panel-title">Crear/Editar usuarios</h3>
   </div>
   <div class="panel-body">
-    <p>{{ description }}</p>
     <form [formGroup]="employeeForm" novalidate>
       <div class="form-group">
         <label for="name">Nombre</label>
@@ -28,6 +56,11 @@
       </div>
 
       <div class="form-group">
+        <label for="age">Valoración</label>
+        <input type="text" class="form-control" id="age" formControlName="valoration">
+      </div>
+
+      <div class="form-group">
         <label for="job">Puesto</label>
         <select class="form-control" id="job" formControlName="job">
           <option *ngFor="let job of jobs" [value]="job">{{ job }}</option>
@@ -39,6 +72,8 @@
            <input type="checkbox" formControlName="isActive"> ¿Activo?
          </label>
       </div>
+
+      <button type="button" class="btn btn-success" *ngIf="employee.id == null" [disabled]="!employeeForm.valid" (click)="createUser(employeeForm)">Crear usuario</button>	
 
     </form>
   </div>
